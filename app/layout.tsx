@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   title: "Joseph Barrera — Full-Stack Developer · Web & Mobile",
   description:
     "Joseph Benjamin Barrera — full-stack developer from Tarlac, Philippines. Building scalable, thoughtful software for the web.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({
