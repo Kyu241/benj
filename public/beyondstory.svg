@@ -1,27 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="340" height="188" viewBox="0 0 340 188" fill="none">
-  <!-- open book: the manuscript the pipeline starts from -->
-  <path d="M26 40 C 40 33, 56 34, 66 43 L66 84 C 56 76, 40 75, 26 81 Z" fill="#111111"/>
-  <path d="M106 40 C 92 33, 76 34, 66 43 L66 84 C 76 76, 92 75, 106 81 Z" fill="#111111"/>
-  <!-- pipeline connectors -->
-  <g stroke="#111111" stroke-width="6" stroke-linecap="round">
-    <line x1="118" y1="60" x2="140" y2="60"/>
-    <line x1="166" y1="60" x2="188" y2="60"/>
-    <line x1="216" y1="60" x2="236" y2="60"/>
+  <!-- a character speaks out of the book: speech bubble rising from the spine -->
+  <path d="M146 12 H194 Q213 12 213 31 V51 Q213 70 194 70 H181 L170 85 L159 70 H146 Q127 70 127 51 V31 Q127 12 146 12 Z"
+        fill="#FBF6EC" stroke="#1F1B16" stroke-width="4" stroke-linejoin="round"/>
+  <!-- BeyondStory's plot-twist star -->
+  <path d="M170 25 C171.6 36.5, 174.5 39.4, 186 41 C174.5 42.6, 171.6 45.5, 170 57 C168.4 45.5, 165.5 42.6, 154 41 C165.5 39.4, 168.4 36.5, 170 25 Z" fill="#C2673C"/>
+  <!-- open book -->
+  <g stroke="#1F1B16" stroke-width="4" stroke-linejoin="round" fill="#FBF6EC">
+    <path d="M170 96 C152 86, 126 84, 103 90 L103 133 C126 127, 152 129, 170 139 Z"/>
+    <path d="M170 96 C188 86, 214 84, 237 90 L237 133 C214 127, 188 129, 170 139 Z"/>
   </g>
-  <!-- passages / embeddings node -->
-  <circle cx="153" cy="60" r="13" fill="#111111"/>
-  <!-- the AI step -->
-  <circle cx="202" cy="60" r="14" fill="#C2673C"/>
-  <!-- the character's reply -->
-  <rect x="244" y="38" width="72" height="42" rx="12" fill="#111111"/>
-  <path d="M262 78 L256 94 L276 79 Z" fill="#111111"/>
-  <g fill="#FFFFFF">
-    <circle cx="266" cy="59" r="4"/>
-    <circle cx="280" cy="59" r="4"/>
-    <circle cx="294" cy="59" r="4"/>
+  <!-- lines of text on the pages -->
+  <g stroke="#1F1B16" stroke-width="2.5" stroke-linecap="round" opacity="0.45">
+    <path d="M115 101 C129 97, 145 98, 158 103"/>
+    <path d="M115 111 C129 107, 145 108, 158 113"/>
+    <path d="M115 121 C129 117, 145 118, 158 123"/>
+    <path d="M225 101 C211 97, 195 98, 182 103"/>
+    <path d="M225 111 C211 107, 195 108, 182 113"/>
+    <path d="M225 121 C211 117, 195 118, 182 123"/>
   </g>
-  <!-- the reader comes back to the story -->
-  <path d="M300 92 C 288 136, 84 136, 68 94" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.5 13"/>
-  <!-- wordmark -->
-  <text x="170" y="172" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="1" fill="#111111">BeyondStory</text>
+  <!-- wordmark in the book's serif voice -->
+  <text x="170" y="177" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="31" letter-spacing="0.5" fill="#1F1B16">Beyond<tspan font-style="italic" fill="#C2673C">Story</tspan></text>
 </svg>
