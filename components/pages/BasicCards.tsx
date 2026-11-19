@@ -45,6 +45,38 @@ Several bot "personas" run on the same engine — a full qualification agent, a 
     ],
   },
   {
+    title: "BeyondStory",
+    summary:
+      "An AI reading companion that lets readers talk to a novel's characters at its 13 plot twists — spoiler-safe, and in the characters' own voices.",
+    tag: "AI · RAG Pipeline",
+    description:
+      "BeyondStory turns Jan van den Berg's Dutch novel Wanneer je Verschijnt into a conversation. QR codes in the printed book open a portal where readers talk to Thom, Esther and Mathilde at the exact moment they have just read — grounded in the book, true to the author, and never ahead of the story.",
+    image: "/beyondstory.svg",
+    preview: { src: "/beyondstory.svg", fit: "contain" },
+    url: "https://wanneerjeverschijnt.nl",
+    longDescription: `BeyondStory (built under the codename BookTalk) is the AI layer of a novel. The idea is to let readers stay with the story after the page ends: at 13 plot-twist moments in the printed book, a QR code invites the reader to talk to a character who was there. Readers sign in with a magic link, choose the moment they have just read and a character, and ask anything — why Thom did what he did, what Esther was really thinking, what is going on between them. The portal launched alongside the book in November 2026 with a live demo at the launch event; the backend and both AI pipelines were built end to end for a Dutch AI agency, alongside teammates who built the React reader portal.
+
+Behind the chat sits a fully automated book pipeline on Windmill. The manuscript is parsed into parts, chapters and numbered sections, then cut into passages that keep their structural anchor (part and § number) and embedded into Weaviate for hybrid semantic and keyword search. A series of LLM passes then takes over: they extract the scenes and label every passage with its scene, analyse the chapters in parallel, build a profile for each character from the text — voice, motivations, relationships, fears, what they know at each point — merge those into one canonical profile, and translate the character, scene and moment data from Dutch to English. Where the book leaves a character's inner life open, the pipeline generates targeted questionnaires for the author; his answers flow back in as per-moment inner states, so each character speaks from where they actually are in the story rather than from a summary of the whole book.
+
+Every reader message runs through a second, real-time pipeline: an n8n API in front, Windmill doing the work. The chosen moment sets a hard spoiler boundary, enforced server-side, so retrieval can never reach past the reader's place in the book. Two hybrid-search passes pull the passages that matter, and the prompt is assembled from the character's persona and voice rules, a rolling summary of the conversation and a per-reader memory, with the key passages and the author's inner state for that moment placed at the end, where the model weighs them most. A safety rule lets the character step out of the story to point a reader in crisis to real help. GPT-5.4 mini answers in a few seconds, and a background pass quietly updates what the character remembers about the reader, with sensitive personal data excluded.
+
+Quality is measured rather than guessed: evaluation runs score the characters' answers for factual accuracy and for fidelity to the author's own notes, and a 41-check end-to-end suite — API calls plus a real browser — verifies the live site. The portal is privacy-first: sign-in is required, every conversation is private to its owner and can be picked up again later, and data collection is kept to what the experience needs.`,
+    techStack: ["TypeScript", "Windmill", "n8n", "OpenAI GPT", "Weaviate", "PostgreSQL", "React", "Vercel"],
+    highlights: ["AI Automated Pipeline", "Spoiler-Safe RAG"],
+    features: [
+      "Automated book pipeline on Windmill: manuscript → parts, chapters and § sections → anchored passages → embeddings in Weaviate",
+      "LLM passes that extract scenes, label every passage with its scene, and analyse chapters in parallel",
+      "Character profiles built from the text and merged into one canonical profile per character",
+      "Automatic Dutch-to-English translation of character, scene and moment data",
+      "Author in the loop: generated questionnaires fill gaps in the book, and the answers become per-moment inner states",
+      "Hard, server-side spoiler boundaries per moment on every retrieval",
+      "Two-pass hybrid search, with key passages and the author's inner state placed where the model weighs them most",
+      "Per-reader memory and rolling conversation summaries, with sensitive data excluded",
+      "Safety rule that steps out of the story to point readers in crisis to real help",
+      "Magic-link sign-in, private per-account history, and a 41-check end-to-end test suite",
+    ],
+  },
+  {
     title: "CAI Studio",
     summary:
       "A no-code platform to build AI studios of specialized, collaborating agents.",
@@ -309,7 +341,7 @@ export default function BasicCards() {
         className="w-full scroll-mt-24 px-6 py-16 md:px-10 md:py-24"
       >
         <div className="mx-auto max-w-[1240px]">
-          <SectionHeader index="04" title="Selected Work" label="Ten of many" />
+          <SectionHeader index="04" title="Selected Work" label="Eleven of many" />
 
           <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
             {visible.map((project, i) => (
