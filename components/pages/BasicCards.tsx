@@ -15,6 +15,36 @@ type Project = ProjectDetails & {
 
 const data: Project[] = [
   {
+    title: "Looping",
+    summary:
+      "An AI-run SMS pipeline that buys cars from consumers — qualifying, valuing, and closing each lead autonomously.",
+    tag: "AI · Automation",
+    description:
+      "The conversational-AI engine behind a Dutch car-buying service. Inbound SMS leads are qualified, valued, and closed by autonomous chat agents — a legacy multi-workflow automation re-architected into a single, high-throughput AI pipeline.",
+    image: "/looping.svg",
+    preview: { src: "/looping.svg", fit: "contain" },
+    url: "https://wijverkopenuwautowel.nl",
+    longDescription: `Looping is the AI brain behind a Dutch "we buy your car" service. Instead of a call centre, the entire buying conversation happens over SMS: a customer texts in about selling their car, and autonomous AI agents qualify the vehicle, make a valuation, negotiate, and push the warm lead toward a closed deal — with no human in the loop for the routine path.
+
+The heart of the project is a hybrid deterministic-plus-AI pipeline. Every inbound message first hits a 60-second debounce in Redis, so a customer firing off three quick texts is answered once, coherently, instead of three times. A first model classifies intent and sentiment; a deterministic state machine then decides exactly where the conversation stands in a structured question flow (car details, photos, mileage, price); and a second model writes the actual reply, using tool calls to fetch live vehicle data and pricing. Layered safety checks gate every outbound message before it can ever reach a customer.
+
+Several bot "personas" run on the same engine — a full qualification agent, a fast scrap-value agent, and a closing agent that lands a final offer on warm leads. The system was migrated off a fragile five-workflow legacy automation onto a single monolithic pipeline on Windmill, swapping a polling database queue for Redis debouncing and the deprecated Assistants API for direct Chat Completions. Time-based "nudges" automatically re-engage conversations that go quiet, and each turn reconstructs the full chat history from the database, so inference stays completely stateless and horizontally scalable across thousands of leads.`,
+    techStack: ["TypeScript", "Windmill", "OpenAI GPT", "Tool Calling", "PostgreSQL", "Redis", "n8n"],
+    highlights: ["AI Automated Pipeline", "n8n → Windmill Migration"],
+    features: [
+      "Autonomous AI agents that qualify, value, negotiate, and close car-buying leads over SMS",
+      "Multiple bot personas on one engine: full qualification, fast scrap-value, and warm-lead closing",
+      "60-second Redis debounce so rapid-fire messages are batched into one coherent reply",
+      "Two-model design: an intent/sentiment classifier feeds a separate reply-writing model",
+      "Deterministic state machine wrapped around the AI for a reliable, structured question flow",
+      "Tool calling for live vehicle lookups and real-time valuations",
+      "Automated time-based 'nudges' that re-engage stalled conversations",
+      "Stateless inference — full conversation history rebuilt from the database each turn",
+      "Layered safety gates validate every outbound message before delivery",
+      "Re-architected from a five-workflow legacy automation into a single high-throughput pipeline",
+    ],
+  },
+  {
     title: "CAI Studio",
     summary:
       "A no-code platform to build AI studios of specialized, collaborating agents.",
@@ -279,7 +309,7 @@ export default function BasicCards() {
         className="w-full scroll-mt-24 px-6 py-16 md:px-10 md:py-24"
       >
         <div className="mx-auto max-w-[1240px]">
-          <SectionHeader index="04" title="Selected Work" label="Nine of many" />
+          <SectionHeader index="04" title="Selected Work" label="Ten of many" />
 
           <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
             {visible.map((project, i) => (

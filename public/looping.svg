@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="188" viewBox="0 0 340 188" fill="none">
+  <!-- pipeline connectors -->
+  <g stroke="#111111" stroke-width="6" stroke-linecap="round">
+    <line x1="70" y1="58" x2="115" y2="58"/>
+    <line x1="145" y1="58" x2="190" y2="58"/>
+    <line x1="220" y1="58" x2="265" y2="58"/>
+  </g>
+  <!-- automated loop-back flow -->
+  <path d="M283 72 C 302 134, 38 134, 54 74" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round" stroke-dasharray="1.5 13"/>
+  <!-- arrowhead into the first node -->
+  <path d="M46 84 L55 65 L64 84 Z" fill="#111111"/>
+  <!-- pipeline nodes (the 3rd is the AI step) -->
+  <circle cx="55"  cy="58" r="14" fill="#111111"/>
+  <circle cx="130" cy="58" r="14" fill="#111111"/>
+  <circle cx="205" cy="58" r="14" fill="#10B981"/>
+  <circle cx="280" cy="58" r="14" fill="#111111"/>
+  <!-- wordmark -->
+  <text x="170" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" letter-spacing="2" fill="#111111">Looping</text>
+</svg>

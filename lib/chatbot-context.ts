@@ -34,6 +34,8 @@ Recent Work & Projects:
 
 3. Aspire by Filinvest - Homes tailored for urban professionals and upwardly mobile families, featuring themed residential subdivisions, resort-style condos, and high-rise living spaces.
 
+4. Looping - The conversational-AI engine behind a Dutch car-buying service, where the whole car-selling conversation happens over SMS. Joseph built a hybrid deterministic-plus-AI pipeline: inbound texts are debounced in Redis, an intent/sentiment model and a deterministic state machine decide where the conversation stands, and a second model writes the reply using tool calls for live vehicle data and pricing. Multiple autonomous bot personas qualify, value, negotiate, and close leads, with automated time-based "nudges" re-engaging quiet conversations. He re-architected it from a five-workflow legacy automation into a single high-throughput pipeline on Windmill (TypeScript, OpenAI, PostgreSQL, Redis, n8n). This is a strong example of his work on AI automated pipelines and agentic systems.
+
 Skills & Expertise:
 - Full-stack development
 - Web development
